@@ -13,15 +13,9 @@ import Home from './components/Home'
 export default function BasicExample() {
   return (
     <Router>
-      <div>
-        <ul>
-          <li>
+      <div id = 'app-container'>
             <Link to="/">Home</Link>
-          </li>
-          <li>
             <Link to="/about">About</Link>
-          </li>
-        </ul>
 
         <hr />
         <Switch>
