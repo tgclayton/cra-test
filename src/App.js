@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Dashboard from './components/Dashboard'
+// import Dashboard from './components/Dashboard'
 import About from './components/About'
 import Home from './components/Home'
 
@@ -21,9 +21,6 @@ export default function BasicExample() {
           <li>
             <Link to="/about">About</Link>
           </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
-          </li>
         </ul>
 
         <hr />
@@ -34,9 +31,9 @@ export default function BasicExample() {
           <Route path="/about">
             <About />
           </Route>
-          <Route path="/dashboard">
+          {/* <Route path="/dashboard">
             <Dashboard />
-          </Route>
+          </Route> */}
         </Switch>
       </div>
     </Router>
