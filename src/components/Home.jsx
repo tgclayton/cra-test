@@ -3,7 +3,7 @@ import '../styles/Home.css'
 
 export default function Home (props) {
 return (
-  <div id = 'completed-page'>
+  <div id = 'home-page' className = 'full-page'>
   <h2>Home</h2>
 
   {/* Contains the list of todos*/}

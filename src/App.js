@@ -16,13 +16,15 @@ export default function App() {
   return (
     <Router>
       <div id = 'app-container'>
-      <div id = 'navbar'>
+      <div id = 'app-title' className = 'vert-center'>
+        <h1>CRA ToDo</h1>
+      </div>
+
+      <div id = 'navbar' className = 'vert-center'>
         <Link to="/"><span class = 'nav-button'>Home</span></Link>
         <Link to="/about"><span class = 'nav-button'>About</span></Link>
         <Link to="/completed"><span class = 'nav-button'>Completed</span></Link>
       </div>
-
-        <hr />
         <Switch>
           <Route exact path="/">
             <Home />
