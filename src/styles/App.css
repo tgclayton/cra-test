@@ -21,7 +21,7 @@ div {
 }
 
 #app-container {
-  background-color: rgb(5, 52, 66);
+  background-color: rgb(10, 94, 117);
   min-height: 100vh;
   min-width: 100vw;
   flex-direction: column;
