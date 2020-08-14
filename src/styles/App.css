@@ -11,7 +11,9 @@ div {
 .full-page {
   min-height: 80vh;
   min-width: 100vw;
-  align-items: flex-start;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
 }
 
 .vert-center {
@@ -19,6 +21,7 @@ div {
 }
 
 #app-container {
+  background-color: rgb(5, 52, 66);
   min-height: 100vh;
   min-width: 100vw;
   flex-direction: column;
@@ -37,6 +40,14 @@ div {
   padding: .5em;
 }
 
+.todo-list {
+  min-width: 50vw;
+  min-height: 40%;
+  border: 2pt solid black;
+  box-shadow: 3px 2px black;
+  border-radius: 20px;
+  background-color: ivory;
+}
 
 
 

@@ -7,7 +7,7 @@ return (
   <h2>Home</h2>
 
   {/* Contains the list of todos*/}
-  <div id = 'todo-list'>
+  <div id = 'todo-list' className = "todo-list">
 
   </div>
 
