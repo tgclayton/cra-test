@@ -1,4 +1,5 @@
 import React from "react";
+import Todo from './Todo'
 import '../styles/Home.css'
 
 export default function Home (props) {
@@ -8,7 +9,7 @@ return (
 
   {/* Contains the list of todos*/}
   <div id = 'todo-list' className = "todo-list">
-
+  
   </div>
 
   {/* Add a todo */}
