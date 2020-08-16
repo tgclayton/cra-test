@@ -1,11 +1,12 @@
 import React from "react";
 
 export default function Todo (props) {
+const {task, date} = props
 return (
-  <div>
-    <div>Complete</div>
-    <div>Task</div>
-    <div>Date Created</div>
+  <div className = 'todo'>
+    <div className = 'complete-box'></div>
+    <div>{task}</div>
+    <div>{date}</div>
   </div>
 )
 }

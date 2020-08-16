@@ -21,9 +21,9 @@ export default function App() {
       </div>
 
       <div id = 'navbar' className = 'vert-center'>
-        <Link to="/"><span class = 'nav-button'>Home</span></Link>
-        <Link to="/about"><span class = 'nav-button'>About</span></Link>
-        <Link to="/completed"><span class = 'nav-button'>Completed</span></Link>
+        <Link to="/"><span className = 'nav-button'>Home</span></Link>
+        <Link to="/about"><span className = 'nav-button'>About</span></Link>
+        <Link to="/completed"><span className = 'nav-button'>Completed</span></Link>
       </div>
         <Switch>
           <Route exact path="/">

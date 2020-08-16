@@ -47,6 +47,7 @@ div {
   box-shadow: 3px 2px black;
   border-radius: 20px;
   background-color: ivory;
+  flex-direction: column;
 }
 
 
