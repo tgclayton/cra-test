@@ -16,5 +16,11 @@ export default [
     dateCreated: '17/08/2020',
     complete: false,
     dateCompleted: null,
+  },
+  {
+    task: 'Add a completed todo',
+    dateCreated: '17/08/2020',
+    complete: true,
+    dateCompleted: '17/08/2020',
   }
 ]
