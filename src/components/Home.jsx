@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import Todo from './Todo'
 import '../styles/Home.css'
 
 export default function Home (props) {
+  const [todos, addTodo]  = useState([])
 return (
   <div id = 'home-page' className = 'full-page'>
   <h2>Home</h2>
