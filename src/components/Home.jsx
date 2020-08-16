@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import Todo from './Todo'
-import initTodos from './defaultTodos'
 import '../styles/Home.css'
 
 export default function Home (props) {
-  const [todos, addTodo]  = useState(initTodos.filter(item => !item.complete))
+ const todos = props.todos.filter(item => !item.complete)
 return (
   <div id = 'home-page' className = 'full-page'>
   <h2>To-do</h2>

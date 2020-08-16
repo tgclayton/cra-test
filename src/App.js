@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,9 +10,11 @@ import './styles/App.css'
 import About from './components/About'
 import Home from './components/Home'
 import Completed from './components/Completed'
+import initTodos from './components/defaultTodos'
 
 
 export default function App() {
+  const [todos, addTodo] = useState(initTodos)
   return (
     <Router>
       <div id = 'app-container'>
@@ -27,13 +29,13 @@ export default function App() {
       </div>
         <Switch>
           <Route exact path="/">
-            <Home />
+            <Home todos = {todos.filter(item => !item.complete)}/>
           </Route>
           <Route path="/about">
             <About />
           </Route>
           <Route path="/completed">
-            <Completed />
+            <Completed  todos = {todos.filter(item => item.complete)}/>
           </Route>
         </Switch>
       </div>

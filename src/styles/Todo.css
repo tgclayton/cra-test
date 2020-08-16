@@ -1,7 +1,7 @@
 .todo {
   width: 100%;
   justify-content: space-between;
-  padding: .5em;
+  padding: .5em 0;
   align-items: center;
 }
 
@@ -10,11 +10,11 @@
 }
 
 .date-box {
-  width: 30%;
+  width: 25%;
 }
 
 .complete-box {
-  width: 20%;
+  width: 25%;
 }
 
 .complete-check-box {
