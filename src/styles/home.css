@@ -1,2 +1,8 @@
 #home-page {
 }
+
+#header-todo {
+  padding: 1em;
+  font-size: larger;
+  font-weight: bold;
+}

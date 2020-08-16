@@ -11,12 +11,20 @@ return (
 
   {/* Contains the list of todos*/}
   <div id = 'todo-list' className = "todo-list">
+  <div id = 'header-todo' className = 'todo'>
+    <div className = 'complete-box'>Completed</div>
+    <div className = 'task-box'>Task</div>
+    <div className = 'date-box'>Date Created</div>
+  </div>
   {todos.map((item, i) => {
       return (
+        <>
       <Todo key = {`todo-${i}`} 
       date = {item.dateCreated}
       task = {item.task}
       ></Todo>
+      <hr></hr>
+      </>
       ) 
   })}
   </div>
