@@ -16,6 +16,7 @@ return (
     <div className = 'task-box'>Task</div>
     <div className = 'date-box'>Date Created</div>
   </div>
+  <div id = 'header-line'></div>
   {todos.map((item, i) => {
       return (
         <>
@@ -23,7 +24,7 @@ return (
       date = {item.dateCreated}
       task = {item.task}
       ></Todo>
-      <hr></hr>
+      <div className = 'line'></div>
       </>
       ) 
   })}

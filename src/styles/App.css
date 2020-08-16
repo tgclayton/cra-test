@@ -8,6 +8,10 @@ div {
 
 }
 
+hr {
+  color: black;
+}
+
 .full-page {
   min-height: 80vh;
   min-width: 100vw;

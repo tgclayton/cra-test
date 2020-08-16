@@ -2,7 +2,15 @@
 }
 
 #header-todo {
-  padding: 1em;
+  padding: 1em 1em .5em;
   font-size: larger;
   font-weight: bold;
+}
+
+#header-line {
+  border-bottom: 2pt solid black;
+}
+
+.line {
+  border-bottom: 1pt solid black;
 }
