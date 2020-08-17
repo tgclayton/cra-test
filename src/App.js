@@ -14,7 +14,7 @@ import initTodos from './components/defaultTodos'
 
 
 export default function App() {
-  const [todos, addTodo] = useState(initTodos)
+  const [todoList, updateTodos] = useState(initTodos)
   return (
     <Router>
       <div id = 'app-container'>
@@ -29,13 +29,21 @@ export default function App() {
       </div>
         <Switch>
           <Route exact path="/">
-            <Home todos = {todos.filter(item => !item.complete)}/>
+            <Home 
+            todos = {todoList.filter(item => !item.complete)}
+              updateTodos = {updateTodos}
+              todoList = {todoList}
+            />
           </Route>
           <Route path="/about">
             <About />
           </Route>
           <Route path="/completed">
-            <Completed  todos = {todos.filter(item => item.complete)}/>
+            <Completed  
+            todos = {todoList.filter(item => item.complete)}
+            updateTodos = {updateTodos}
+            todoList = {todoList}
+            />
           </Route>
         </Switch>
       </div>

@@ -7,13 +7,16 @@
   font-weight: bold;
 }
 
+#new-todo {
+  padding: 1em 0;
+}
+
 #new-todo-input {
   height: 100%;
   width: 100%;
   outline: none;
   border: none;
   text-align: center;
-  padding: 1em 0;
 }
 
 #header-line {
