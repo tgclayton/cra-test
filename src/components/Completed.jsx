@@ -18,7 +18,7 @@ return (
       return (
         <>
       <Todo key = {`todo-${i}`} 
-      date = {item.dateCreated}
+      date = {item.dateCompleted}
       task = {item.task}
       ></Todo>
       <div className = 'line'></div>

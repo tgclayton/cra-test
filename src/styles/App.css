@@ -45,8 +45,8 @@ hr {
 }
 
 .todo-list {
-  min-width: 80vw;
-  max-width: 80vw;
+  min-width: 70vw;
+  max-width: 70vw;
   min-height: 40%;
   border: 2pt solid black;
   box-shadow: 3px 2px black;
