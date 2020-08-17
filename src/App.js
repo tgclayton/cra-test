@@ -55,15 +55,17 @@ export default function App() {
   }
 
   function handleKeyDown (e) {
+    
     if (e.key === 'Enter') {
+      console.log(document.activeElement)
       e.preventDefault()
       addTodo()
     }
   }
   
-    useEffect(() => {
-      document.addEventListener('keydown',  handleKeyDown)
-    })
+  useEffect(() => {
+    document.addEventListener('keydown',  handleKeyDown)
+  })
 
   return (
     <Router>

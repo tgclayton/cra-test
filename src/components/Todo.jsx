@@ -5,19 +5,19 @@ export default function Todo (props) {
 const {task, date, buttonFunc, i} = props
 let taskBox = null
 if (props.isHome) {
-  taskBox = <div className = 'task-box' contentEditable>
+  taskBox = <div id = {`${props.task}`} key = {`task${i}`} className = 'task-box' contentEditable>
   {task}
   </div>
 } else {
-  taskBox = <div className = 'task-box'>
+  taskBox = <div  key = {`task${i}`} className = 'task-box'>
   {task}
   </div>
 }
 return (
   <div className = 'todo' key = {`todo${i}`}>
-    <div className = 'complete-box'><div className = 'complete-check-box' onClick = {() => buttonFunc(task)}></div></div>
+    <div key = {`complete${i}`} className = 'complete-box'><div className = 'complete-check-box' onClick = {() => buttonFunc(task)}></div></div>
     {taskBox}
-    <div className = 'date-box'>{date}</div>
+    <div key = {`date${i}`} className = 'date-box'>{date}</div>
   </div>
 )
 }
