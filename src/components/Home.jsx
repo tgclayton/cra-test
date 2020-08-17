@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Todo from './Todo'
 import '../styles/Home.css'
 
