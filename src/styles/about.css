@@ -1,3 +1,8 @@
-#about-page h2 {
+#about-window {
+  justify-content: center;
+  align-items: center;
+}
 
+#about-window p {
+max-width: 80%;
 }
