@@ -40,8 +40,6 @@ return (
     <div className = 'date-box'></div>
   </div>
   </div>
-  <br></br> <br></br> <br></br>
-  <button onClick = {() => props.addTodo()}>add task</button>
 </div>
 )
 }
