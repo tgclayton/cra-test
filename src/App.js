@@ -54,15 +54,25 @@ export default function App() {
     updateTodos(newTodoList)
   }
 
-  function handleKeyDown (e) {
-    
-    if (e.key === 'Enter') {
-      console.log(document.activeElement)
-      e.preventDefault()
-      addTodo()
-    }
+  const updateItem = (target) => {
+    const i = todoList.findIndex(item => item.task === target.id)
+    todoList[i].task = target.innerText
+    const newTodoList = [...todoList]
+    updateTodos(newTodoList)
   }
-  
+
+  function handleKeyDown (e) {
+    const focused = document.activeElement
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      if(focused.id === "new-todo-input") {
+      addTodo()
+      } else {
+      updateItem(focused)
+      }
+  }
+}
+
   useEffect(() => {
     document.addEventListener('keydown',  handleKeyDown)
   })

@@ -32,13 +32,11 @@ return (
       ) 
   })}
   <div className = 'todo'>
-    <div className = 'complete-box'></div>
     <div className = 'task-box'>
     <form id = 'new-todo'>
     <input id = 'new-todo-input' className = 'todo-input' type = 'text' placeholder = 'Add a new task'></input>
     </form>
     </div>
-    <div className = 'date-box'></div>
   </div>
   </div>
 </div>
