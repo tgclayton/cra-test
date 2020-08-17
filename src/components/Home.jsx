@@ -25,6 +25,7 @@ return (
       task = {item.task}
       buttonFunc = {props.completeTodo}
       todoList = {props.todoList}
+      isHome = {true}
       ></Todo>
       <div className = 'line'></div>
       </>
@@ -34,7 +35,7 @@ return (
     <div className = 'complete-box'></div>
     <div className = 'task-box'>
     <form id = 'new-todo'>
-    <input id = 'new-todo-input' type = 'text' placeholder = 'Add a new task'></input>
+    <input id = 'new-todo-input' className = 'todo-input' type = 'text' placeholder = 'Add a new task'></input>
     </form>
     </div>
     <div className = 'date-box'></div>

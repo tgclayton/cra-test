@@ -11,7 +11,7 @@
   padding: 1em 0;
 }
 
-#new-todo-input {
+.todo-input {
   height: 100%;
   width: 100%;
   outline: none;
@@ -26,3 +26,4 @@
 .line {
   border-bottom: 1pt solid black;
 }
+
