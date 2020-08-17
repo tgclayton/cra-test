@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,6 +15,32 @@ import initTodos from './components/defaultTodos'
 
 export default function App() {
   const [todoList, updateTodos] = useState(initTodos)
+
+ const addTodo = () => {
+    const task = document.getElementById('new-todo-input').value
+    if (task){
+    const currentDate = new Date()
+    const todo = {
+      task: task,
+      dateCreated: currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear(),
+      complete: false,
+      dateCompleted: null,
+    }
+    const newTodoList = [...todoList]
+    newTodoList.push(todo)
+    document.getElementById('new-todo').reset()
+    updateTodos(newTodoList)
+  }
+  }
+
+ const completeTodo = (i) => {
+   console.log('complete')
+    const currentDate = new Date()
+    todoList[i].complete = true
+    todoList[i].dateCompleted = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear()
+    updateTodos(todoList)
+  }
+
   return (
     <Router>
       <div id = 'app-container'>
@@ -31,7 +57,8 @@ export default function App() {
           <Route exact path="/">
             <Home 
             todos = {todoList.filter(item => !item.complete)}
-              updateTodos = {updateTodos}
+              addTodo = {addTodo}
+              completeTodo = {completeTodo}
               todoList = {todoList}
             />
           </Route>
@@ -41,7 +68,6 @@ export default function App() {
           <Route path="/completed">
             <Completed  
             todos = {todoList.filter(item => item.complete)}
-            updateTodos = {updateTodos}
             todoList = {todoList}
             />
           </Route>

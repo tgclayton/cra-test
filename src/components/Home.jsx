@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Todo from './Todo'
 import '../styles/Home.css'
 
@@ -7,19 +7,17 @@ import '../styles/Home.css'
 export default function Home (props) {
  const activeTodos = props.todos.filter(item => !item.complete)
 
- function addTodo () {
-  const currentDate = new Date()
-  const todo = {
-    task: document.getElementById('new-todo-input').value,
-    dateCreated: currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear(),
-    complete: false,
-    dateCompleted: null,
-  }
-  const todoList = [...props.todoList]
-  todoList.push(todo)
-  document.getElementById('new-todo').reset()
-  props.updateTodos(todoList)
-  }
+// function handleKeyDown (e) {
+//   if (e.key === 'Enter') {
+//     e.preventDefault()
+//     addTodo()
+//   }
+// }
+
+  // useEffect(() => {
+  //   document.addEventListener('keydown',  handleKeyDown)
+  // })
+
 return (
   <div id = 'home-page' className = 'full-page'>
   <h2>To-do</h2>
@@ -38,6 +36,9 @@ return (
       <Todo key = {`todo-${i}`} 
       date = {item.dateCreated}
       task = {item.task}
+      completeTodo = {props.completeTodo}
+      todoList = {props.todoList}
+      i = {i}
       ></Todo>
       <div className = 'line'></div>
       </>
@@ -54,7 +55,7 @@ return (
   </div>
   </div>
   <br></br> <br></br> <br></br>
-  <button onClick = {() => addTodo()}>add task</button>
+  <button onClick = {() => props.addTodo()}>add task</button>
 </div>
 )
 }
