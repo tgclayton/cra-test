@@ -2,21 +2,8 @@ import React, { useEffect } from "react";
 import Todo from './Todo'
 import '../styles/Home.css'
 
-
-
 export default function Home (props) {
  const activeTodos = props.todos.filter(item => !item.complete)
-
-// function handleKeyDown (e) {
-//   if (e.key === 'Enter') {
-//     e.preventDefault()
-//     addTodo()
-//   }
-// }
-
-  // useEffect(() => {
-  //   document.addEventListener('keydown',  handleKeyDown)
-  // })
 
 return (
   <div id = 'home-page' className = 'full-page'>

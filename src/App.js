@@ -27,8 +27,8 @@ export default function App() {
     }
     const newTodoList = [...todoList]
     newTodoList.push(todo)
-    document.getElementById('new-todo').reset()
     updateTodos(newTodoList)
+    document.getElementById('new-todo').reset()
   }
   }
 
@@ -53,6 +53,17 @@ export default function App() {
     const newTodoList = [...todoList]
     updateTodos(newTodoList)
   }
+
+  function handleKeyDown (e) {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      addTodo()
+    }
+  }
+  
+    useEffect(() => {
+      document.addEventListener('keydown',  handleKeyDown)
+    })
 
   return (
     <Router>
