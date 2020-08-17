@@ -27,10 +27,12 @@ return (
       </>
       ) 
   })}
+  <div id = 'new-todo' className = 'todo'>
+    <div className = 'complete-box'>-</div>
+    <div className = 'task-box'><input id = 'new-todo-input' type = 'text' placeholder = 'Add a new task'></input></div>
+    <div className = 'date-box'>-</div>
   </div>
-
-  {/* Add a todo */}
-  <button id = 'add-todo'>New Item</button>
+  </div>
 </div>
 )
 }
