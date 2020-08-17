@@ -1,5 +1,6 @@
 import React from "react";
 import Todo from './Todo'
+import '../styles/Completed.css'
 
 export default function Completed (props) {
   const todos = props.todos.filter(item => item.complete)
@@ -24,10 +25,8 @@ return (
       </>
       ) 
   })}
+  <div id = 'completed-buffer'></div>
 </div>
-  <div>
-
-  </div>
 </div>
 )
 }

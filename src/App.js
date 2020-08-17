@@ -15,10 +15,9 @@ import initTodos from './components/defaultTodos'
 
 export default function App() {
   const [todoList, updateTodos] = useState(initTodos)
-
  const addTodo = () => {
     const task = document.getElementById('new-todo-input').value
-    if (task){
+    if (task && todoList.every(item => item.task !== task)){
     const currentDate = new Date()
     const todo = {
       task: task,
@@ -33,12 +32,16 @@ export default function App() {
   }
   }
 
- const completeTodo = (i) => {
-   console.log('complete')
+ const completeTodo = (task) => {
+  //  console.log('i:', i)
+  //  console.log('todolist:', todoList)
+    const i = todoList.findIndex(item => item.task === task)
     const currentDate = new Date()
     todoList[i].complete = true
     todoList[i].dateCompleted = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear()
-    updateTodos(todoList)
+    const newTodoList = [...todoList]
+
+    updateTodos(newTodoList)
   }
 
   return (

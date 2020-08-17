@@ -38,20 +38,19 @@ return (
       task = {item.task}
       completeTodo = {props.completeTodo}
       todoList = {props.todoList}
-      i = {i}
       ></Todo>
       <div className = 'line'></div>
       </>
       ) 
   })}
   <div className = 'todo'>
-    <div className = 'complete-box'>-</div>
+    <div className = 'complete-box'></div>
     <div className = 'task-box'>
     <form id = 'new-todo'>
     <input id = 'new-todo-input' type = 'text' placeholder = 'Add a new task'></input>
     </form>
     </div>
-    <div className = 'date-box'>-</div>
+    <div className = 'date-box'></div>
   </div>
   </div>
   <br></br> <br></br> <br></br>
