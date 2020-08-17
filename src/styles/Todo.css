@@ -8,8 +8,8 @@
 .task-box {
   width: 50%;
   outline: none;
-  white-space: pre-wrap;
-  word-break: break-all;
+  /* white-space: pre-wrap; */
+  /* word-break: break-all; */
   overflow-wrap: break-word;
 }
 

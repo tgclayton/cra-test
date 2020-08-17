@@ -8,12 +8,13 @@
 }
 
 #new-todo {
-  padding: 1em 0;
+  width: 100%;
 }
 
 .todo-input {
+  padding: 1em 0;
   height: 100%;
-  width: 100%;
+  width: 80%;
   outline: none;
   border: none;
   text-align: center;
