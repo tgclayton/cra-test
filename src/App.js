@@ -38,12 +38,19 @@ export default function App() {
     todoList[i].complete = true
     todoList[i].dateCompleted = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear()
     const newTodoList = [...todoList]
-
     updateTodos(newTodoList)
   }
 
   const clearCompleted = () => {
     const newTodoList = todoList.filter(item => !item.complete)
+    updateTodos(newTodoList)
+  }
+  
+  const restoreItem = (task) => {
+    const i = todoList.findIndex(item => item.task === task)
+    todoList[i].complete = false
+    todoList[i].dateCompleted = null
+    const newTodoList = [...todoList]
     updateTodos(newTodoList)
   }
 
@@ -74,6 +81,7 @@ export default function App() {
           <Route path="/completed">
             <Completed  
             todos = {todoList.filter(item => item.complete)}
+            restoreItem = {restoreItem}
             clearCompleted = {clearCompleted}
             todoList = {todoList}
             />

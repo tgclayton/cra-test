@@ -25,7 +25,7 @@ return (
   {/* Contains the list of todos*/}
   <div id = 'todo-list' className = "todo-list">
   <div id = 'header-todo' className = 'todo'>
-    <div className = 'complete-box'>Completed</div>
+    <div className = 'complete-box'>Complete</div>
     <div className = 'task-box'>Task</div>
     <div className = 'date-box'>Date Created</div>
   </div>
@@ -36,7 +36,7 @@ return (
       <Todo key = {`todo-${i}`} 
       date = {item.dateCreated}
       task = {item.task}
-      completeTodo = {props.completeTodo}
+      buttonFunc = {props.completeTodo}
       todoList = {props.todoList}
       ></Todo>
       <div className = 'line'></div>

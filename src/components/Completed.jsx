@@ -21,7 +21,7 @@ return (
       <Todo key = {`todo-${i}`} 
       date = {item.dateCompleted}
       task = {item.task}
-      removeItem = {props.removeItem}
+      buttonFunc = {props.restoreItem}
       ></Todo>
       <div className = 'line'></div>
       </>
