@@ -4,7 +4,6 @@ import '../styles/About.css'
 export default function About() {
   return (
     <div id = 'about-page' className = 'full-page'>
-      <h2>About</h2>
       <div id = 'about-window' className = "todo-list">
       <p>A simple app written to practice using Create-react-App and to learn React hooks.
       In the course of writing it I also learned about localStorage and used that as well.

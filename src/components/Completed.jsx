@@ -6,7 +6,6 @@ export default function Completed (props) {
   const todos = props.todos.filter(item => item.complete)
 return (
   <div id = 'completed-page' className = 'full-page'>
-  <h2>Completed</h2>
 
   <div id = 'completed-list' className = "todo-list">
     <div id = 'header-todo' className = 'todo'>

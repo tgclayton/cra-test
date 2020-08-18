@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -12,6 +12,14 @@ import Completed from './components/Completed'
 
 export default function App() {
   const [todoList, updateTodos] = useState(JSON.parse(localStorage.getItem('storedTodos')))
+  const [currentPage, updatePage] = useState('active')
+
+   useEffect (() => {
+    document.getElementById('active-button').classList.remove('dark-background')
+    document.getElementById('completed-button').classList.remove('dark-background')
+    const current = currentPage + '-button' 
+    document.getElementById(current).classList.toggle('dark-background')
+   })
 
  const addTodo = () => {
    const input = document.getElementById('new-todo-input')
@@ -67,23 +75,23 @@ export default function App() {
     updateTodos(newTodoList)
   }
 
-function inputKeyDown (e) {
-  if (e.key === 'Enter') {
-    addTodo()
+  function inputKeyDown (e) {
+    if (e.key === 'Enter') {
+      addTodo()
+    }
   }
-}
 
-function taskKeyDown (e) {
-  const focused = document.activeElement
-  if (e.key === 'Enter') {
-    updateItem(focused)
-    } 
-}
+  function taskKeyDown (e) {
+    const focused = document.activeElement
+    if (e.key === 'Enter') {
+      updateItem(focused)
+      } 
+  }
 
-function updateStorage (data) {
-localStorage.removeItem('storedTodos')
-localStorage.setItem('storedTodos', JSON.stringify(data))
-}
+  function updateStorage (data) {
+    localStorage.removeItem('storedTodos')
+    localStorage.setItem('storedTodos', JSON.stringify(data))
+  }
 
   return (
     <Router>
@@ -93,9 +101,9 @@ localStorage.setItem('storedTodos', JSON.stringify(data))
       </div>
 
       <div id = 'navbar' className = 'vert-center'>
-        <Link to="/" className = 'nav-button'>Active</Link>
-        <Link to="/completed" className = 'nav-button'>Completed</Link>
-        <Link to="/about" className = 'nav-button'>About</Link>
+        <Link to="/" className = 'nav-button' id = 'active-button' onClick = {() => updatePage('active')}>Active</Link>
+        <Link to="/completed" className = 'nav-button' id = 'completed-button' onClick = {() => updatePage('completed')}>Completed</Link>
+        {/* <Link to="/about" className = 'nav-button'>About</Link> */}
       </div>
       
         <Switch>
