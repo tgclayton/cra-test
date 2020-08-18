@@ -96,10 +96,7 @@ localStorage.setItem('storedTodos', JSON.stringify(data))
         <Link to="/completed" className = 'nav-button'>Completed</Link>
         <Link to="/about" className = 'nav-button'>About</Link>
       </div>
-      <button onClick = {() => addTodo()}>add todo</button>
-      <button onClick = {() => console.log(JSON.parse(localStorage.getItem('storedTodos')))}>inspect local storage</button>
-      <button onClick = {() => console.log(todoList)}>inspect todolist</button>
-      <button onClick = {() => console.log(document.getElementById('new-todo-input'))}>check input</button>
+      
         <Switch>
           <Route exact path="/">
             <Home 

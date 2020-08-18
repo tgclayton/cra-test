@@ -19,9 +19,16 @@ if (props.isHome) {
 }
 return (
   <div className = 'todo' key = {`todo${i}`}>
-    <div key = {`complete${i}`} className = 'complete-box'><div className = 'complete-check-box' onClick = {() => buttonFunc(task)}></div></div>
+  
+    <div key = {`complete${i}`} className = 'complete-box'>
+      <div className = 'complete-check-box' onClick = {() => buttonFunc(task)}>
+      </div>
+    </div>
+
     {taskBox}
+
     <div key = {`date${i}`} className = 'date-box'>{date}</div>
+
   </div>
 )
 }
