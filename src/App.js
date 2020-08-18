@@ -40,6 +40,7 @@ export default function App() {
     todoList[i].complete = true
     todoList[i].dateCompleted = currentDate.getDate() + '/' + (currentDate.getMonth() + 1) + '/' + currentDate.getFullYear()
     const newTodoList = [...todoList]
+    updateStorage(newTodoList)
     updateTodos(newTodoList)
   }
 
