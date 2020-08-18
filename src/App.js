@@ -81,13 +81,13 @@ export default function App() {
     <Router>
       <div id = 'app-container'>
       <div id = 'app-title' className = 'vert-center'>
-        <h1>CRA ToDo</h1>
+        <h1>C-R-A ToDo</h1>
       </div>
 
       <div id = 'navbar' className = 'vert-center'>
-        <Link to="/"><span className = 'nav-button'>Home</span></Link>
-        <Link to="/about"><span className = 'nav-button'>About</span></Link>
-        <Link to="/completed"><span className = 'nav-button'>Completed</span></Link>
+        <Link to="/" className = 'nav-button'>Active</Link>
+        <Link to="/completed" className = 'nav-button'>Completed</Link>
+        <Link to="/about" className = 'nav-button'>About</Link>
       </div>
         <Switch>
           <Route exact path="/">

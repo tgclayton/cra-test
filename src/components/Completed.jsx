@@ -10,7 +10,7 @@ return (
 
   <div id = 'completed-list' className = "todo-list">
     <div id = 'header-todo' className = 'todo'>
-      <div className = 'complete-box'>Remove</div>
+      <div className = 'complete-box'>Restore to Active</div>
       <div className = 'task-box'>Task</div>
       <div className = 'date-box'>Date Completed</div>
     </div>
