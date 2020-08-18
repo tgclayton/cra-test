@@ -13,6 +13,7 @@ import Completed from './components/Completed'
 export default function App() {
   const [todoList, updateTodos] = useState(JSON.parse(localStorage.getItem('storedTodos')))
   const [currentPage, updatePage] = useState('active')
+  const [deleteWindow, toggleDelete] = useState(null)
 
    useEffect (() => {
     document.getElementById('active-button').classList.remove('dark-background')
