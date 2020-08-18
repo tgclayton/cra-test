@@ -36,6 +36,7 @@ return (
     {/* <form id = 'new-todo'> */}
     <input id = 'new-todo-input' 
     className = 'todo-input' 
+    autoComplete = 'off'
     type = 'text' 
     placeholder = 'Add a new task'
     onKeyDown = {(e) => props.inputKeyDown(e)}
