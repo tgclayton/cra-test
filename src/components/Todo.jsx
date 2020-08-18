@@ -5,7 +5,11 @@ export default function Todo (props) {
 const {task, date, buttonFunc, i} = props
 let taskBox = null
 if (props.isHome) {
-  taskBox = <div id = {`${props.task}`} key = {`task${i}`} className = 'task-box' contentEditable>
+  taskBox = <div id = {`${props.task}`} 
+  key = {`task${i}`} 
+  className = 'task-box' 
+  onKeyDown = {(e) => props.taskKeyDown(e)}
+  contentEditable>
   {task}
   </div>
 } else {

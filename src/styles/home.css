@@ -13,8 +13,8 @@
 
 .todo-input {
   padding: 1em 0;
-  height: 100%;
-  width: 80%;
+  height: 1em;
+  width: 100%;
   outline: none;
   border: none;
   text-align: center;

@@ -1,22 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-// import Dashboard from './components/Dashboard'
 import './styles/App.css'
 import About from './components/About'
 import Home from './components/Home'
 import Completed from './components/Completed'
-import initTodos from './components/defaultTodos'
-
 
 export default function App() {
-  const [todoList, updateTodos] = useState(initTodos)
+  const [todoList, updateTodos] = useState(JSON.parse(localStorage.getItem('storedTodos')))
+
  const addTodo = () => {
-    const task = document.getElementById('new-todo-input').value
+   const input = document.getElementById('new-todo-input')
+    const task = input.value
+    input.value = null
+    input.blur()
+    console.log('oldlist:', todoList)
     if (task && todoList.every(item => item.task !== task)){
     const currentDate = new Date()
     const todo = {
@@ -27,8 +29,8 @@ export default function App() {
     }
     const newTodoList = [...todoList]
     newTodoList.push(todo)
+    updateStorage(newTodoList)
     updateTodos(newTodoList)
-    document.getElementById('new-todo').reset()
   }
   }
 
@@ -43,6 +45,7 @@ export default function App() {
 
   const clearCompleted = () => {
     const newTodoList = todoList.filter(item => !item.complete)
+    updateStorage(newTodoList)
     updateTodos(newTodoList)
   }
   
@@ -51,6 +54,7 @@ export default function App() {
     todoList[i].complete = false
     todoList[i].dateCompleted = null
     const newTodoList = [...todoList]
+    updateStorage(newTodoList)
     updateTodos(newTodoList)
   }
 
@@ -58,24 +62,27 @@ export default function App() {
     const i = todoList.findIndex(item => item.task === target.id)
     todoList[i].task = target.innerText
     const newTodoList = [...todoList]
+    updateStorage(newTodoList)
     updateTodos(newTodoList)
   }
 
-  function handleKeyDown (e) {
-    const focused = document.activeElement
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      if(focused.id === "new-todo-input") {
-      addTodo()
-      } else {
-      updateItem(focused)
-      }
+function inputKeyDown (e) {
+  if (e.key === 'Enter') {
+    addTodo()
   }
 }
 
-  useEffect(() => {
-    document.addEventListener('keydown',  handleKeyDown)
-  })
+function taskKeyDown (e) {
+  const focused = document.activeElement
+  if (e.key === 'Enter') {
+    updateItem(focused)
+    } 
+}
+
+function updateStorage (data) {
+localStorage.removeItem('storedTodos')
+localStorage.setItem('storedTodos', JSON.stringify(data))
+}
 
   return (
     <Router>
@@ -89,6 +96,10 @@ export default function App() {
         <Link to="/completed" className = 'nav-button'>Completed</Link>
         <Link to="/about" className = 'nav-button'>About</Link>
       </div>
+      <button onClick = {() => addTodo()}>add todo</button>
+      <button onClick = {() => console.log(JSON.parse(localStorage.getItem('storedTodos')))}>inspect local storage</button>
+      <button onClick = {() => console.log(todoList)}>inspect todolist</button>
+      <button onClick = {() => console.log(document.getElementById('new-todo-input'))}>check input</button>
         <Switch>
           <Route exact path="/">
             <Home 
@@ -96,6 +107,8 @@ export default function App() {
               addTodo = {addTodo}
               completeTodo = {completeTodo}
               todoList = {todoList}
+              inputKeyDown = {inputKeyDown}
+              taskKeyDown = {taskKeyDown}
             />
           </Route>
           <Route path="/about">

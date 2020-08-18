@@ -26,15 +26,22 @@ return (
       buttonFunc = {props.completeTodo}
       todoList = {props.todoList}
       isHome = {true}
+      taskKeyDown = {props.taskKeyDown}
       ></Todo>
       <div className = 'line'></div>
       </>
       ) 
   })}
-  <div className = 'todo'>
-    <form id = 'new-todo'>
-    <input id = 'new-todo-input' className = 'todo-input' type = 'text' placeholder = 'Add a new task'></input>
-    </form>
+  <div className = 'todo' id = 'new-todo'>
+    {/* <form id = 'new-todo'> */}
+    <input id = 'new-todo-input' 
+    className = 'todo-input' 
+    type = 'text' 
+    placeholder = 'Add a new task'
+    onKeyDown = {(e) => props.inputKeyDown(e)}
+    >
+    </input>
+    {/* </form> */}
   </div>
   </div>
 </div>
