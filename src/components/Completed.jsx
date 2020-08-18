@@ -13,6 +13,7 @@ return (
       <div className = 'complete-box'>Restore to Active</div>
       <div className = 'task-box'>Task</div>
       <div className = 'date-box'>Date Completed</div>
+      <div className = 'delete-box'>Delete</div>
     </div>
    <div id = 'header-line'></div>
    {todos.map((item, i) => {

@@ -15,6 +15,7 @@ return (
     <div className = 'complete-box'>Complete</div>
     <div className = 'task-box'>Task</div>
     <div className = 'date-box'>Date Created</div>
+    <div className = 'delete-box'>Delete</div>
   </div>
   <div id = 'header-line'></div>
   {activeTodos.map((item, i) => {
