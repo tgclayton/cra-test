@@ -28,8 +28,13 @@ return (
       ) 
    })}
    <div className = 'completed-buffer'></div>
-  <div id = 'clear-complete' className = 'completed-buffer'><button onClick = {() => props.clearCompleted()}>Clear Completed</button></div>
+  <div id = 'clear-complete' 
+    className = 'completed-buffer'>
+    <button  id = 'clear-complete-button' onClick = {() => props.clearCompleted()}>Delete All</button>
+  </div>
 </div>
 </div>
 )
 }
+
+// 

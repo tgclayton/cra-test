@@ -9,10 +9,11 @@
 
 #new-todo {
   width: 100%;
+  padding: 0;
 }
 
 .todo-input {
-  padding: 1em 0;
+  padding: 1.5em 0;
   height: 1em;
   width: 100%;
   outline: none;
