@@ -22,6 +22,7 @@ return (
       date = {item.dateCompleted}
       task = {item.task}
       buttonFunc = {props.restoreItem}
+      deleteItem = {props.deleteItem}
       ></Todo>
       <div className = 'line'></div>
       </>

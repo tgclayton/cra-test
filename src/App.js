@@ -75,6 +75,12 @@ export default function App() {
     updateTodos(newTodoList)
   }
 
+  function deleteItem(task) {
+    const newTodoList = todoList.filter(item => item.task !== task)
+    updateStorage(newTodoList)
+    updateTodos(newTodoList)
+  }
+
   function inputKeyDown (e) {
     if (e.key === 'Enter') {
       addTodo()
@@ -115,6 +121,7 @@ export default function App() {
               todoList = {todoList}
               inputKeyDown = {inputKeyDown}
               taskKeyDown = {taskKeyDown}
+              deleteItem = {deleteItem}
             />
           </Route>
           <Route path="/about">
@@ -125,6 +132,7 @@ export default function App() {
             todos = {todoList.filter(item => item.complete)}
             restoreItem = {restoreItem}
             clearCompleted = {clearCompleted}
+            deleteItem = {deleteItem}
             todoList = {todoList}
             />
           </Route>

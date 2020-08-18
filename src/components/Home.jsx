@@ -27,6 +27,7 @@ return (
       todoList = {props.todoList}
       isHome = {true}
       taskKeyDown = {props.taskKeyDown}
+      deleteItem = {props.deleteItem}
       ></Todo>
       <div className = 'line'></div>
       </>
