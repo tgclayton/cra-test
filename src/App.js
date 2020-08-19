@@ -4,7 +4,6 @@ import {
   Switch,
   Route,
   Link,
-  useLocation
 } from "react-router-dom";
 import './styles/App.css'
 import About from './components/About'
@@ -108,7 +107,7 @@ export default function App(props) {
     <Router>
       <div id = 'app-container'>
       <div id = 'app-title' className = 'vert-center'>
-        <h1>C-R-A ToDo</h1>
+        <h1>Tom's ToDo</h1>
       </div>
 
       <div id = 'navbar' className = 'vert-center'>
