@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import Todo from './Todo'
 import '../styles/Home.css'
 import DeleteWindow from "./DeleteWindow";
+import { useLocation } from "react-router-dom";
 
 export default function Home (props) {
  const activeTodos = props.todos.filter(item => !item.complete)
  const [deleteWindow, setDelWindow] = useState(null)
+
+ props.setPage('active')
 
   function deletePrompt (task) {
     setDelWindow (

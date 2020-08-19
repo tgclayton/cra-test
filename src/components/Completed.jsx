@@ -7,6 +7,8 @@ export default function Completed (props) {
   const todos = props.todos.filter(item => item.complete)
   const [deleteWindow, setDelWindow] = useState(null)
 
+  props.setPage('completed')
+
   function deletePrompt (task) {
     setDelWindow (
       <DeleteWindow task = {task} 

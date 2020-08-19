@@ -3,7 +3,8 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
+  Link,
+  useLocation
 } from "react-router-dom";
 import './styles/App.css'
 import About from './components/About'
@@ -11,10 +12,9 @@ import Home from './components/Home'
 import Completed from './components/Completed'
 import DeleteWindow from './components/DeleteWindow'
 
-export default function App() {
+export default function App(props) {
   const [todoList, updateTodos] = useState(JSON.parse(localStorage.getItem('storedTodos')))
   const [currentPage, updatePage] = useState('active')
-  // const [deleteWindow, toggleDelete] = useState(null)
 
    useEffect (() => {
     document.getElementById('active-button').classList.remove('dark-background')
@@ -23,12 +23,15 @@ export default function App() {
     document.getElementById(current).classList.toggle('dark-background')
    })
 
+   function setPage(page) {
+     updatePage(page)
+   }
+
  const addTodo = () => {
    const input = document.getElementById('new-todo-input')
     const task = input.value
     input.value = null
     input.blur()
-    console.log('oldlist:', todoList)
     if (task && todoList.every(item => item.task !== task)){
     const currentDate = new Date()
     const todo = {
@@ -124,6 +127,7 @@ export default function App() {
               inputKeyDown = {inputKeyDown}
               taskKeyDown = {taskKeyDown}
               deleteItem = {deleteItem}
+              setPage = {setPage}
             />
           </Route>
           <Route path="/about">
@@ -136,6 +140,7 @@ export default function App() {
             clearCompleted = {clearCompleted}
             deleteItem = {deleteItem}
             todoList = {todoList}
+            setPage = {setPage}
             />
           </Route>
           <Route path="/completed/delete">
