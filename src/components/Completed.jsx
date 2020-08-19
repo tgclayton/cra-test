@@ -38,7 +38,7 @@ return (
         <>
       <Todo key = {`todo-${i}`} 
       date = {item.dateCompleted}
-      task = {item.task}
+       task = {item.task}
       buttonFunc = {props.restoreItem}
       deletePrompt = {deletePrompt}
       ></Todo>
@@ -55,5 +55,3 @@ return (
 </div>
 )
 }
-
-// 
