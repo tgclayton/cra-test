@@ -9,11 +9,12 @@ import './styles/App.css'
 import About from './components/About'
 import Home from './components/Home'
 import Completed from './components/Completed'
+import DeleteWindow from './components/DeleteWindow'
 
 export default function App() {
   const [todoList, updateTodos] = useState(JSON.parse(localStorage.getItem('storedTodos')))
   const [currentPage, updatePage] = useState('active')
-  const [deleteWindow, toggleDelete] = useState(null)
+  // const [deleteWindow, toggleDelete] = useState(null)
 
    useEffect (() => {
     document.getElementById('active-button').classList.remove('dark-background')
@@ -136,6 +137,9 @@ export default function App() {
             deleteItem = {deleteItem}
             todoList = {todoList}
             />
+          </Route>
+          <Route path="/completed/delete">
+            <DeleteWindow/>
           </Route>
         </Switch>
       </div>

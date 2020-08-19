@@ -1,18 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Todo from './Todo'
 import '../styles/Home.css'
 import DeleteWindow from "./DeleteWindow";
 
 export default function Home (props) {
  const activeTodos = props.todos.filter(item => !item.complete)
+ const [deleteWindow, setDelWindow] = useState(null)
 
-  const deleteWindow = props.deleteWindow? <DeleteWindow/>: null
+  function deletePrompt (task) {
+    setDelWindow (
+      <DeleteWindow task = {task} 
+      closeDelWindow = {closeDelWindow}
+      deleteItem = {props.deleteItem}></DeleteWindow> 
+    )
+  }
+
+  function closeDelWindow () {
+    setDelWindow(null)
+  }
 
   return (
     <div id = 'home-page' className = 'full-page'>
-    {deleteWindow}
     {/* Contains the list of todos*/}
     <div id = 'todo-list' className = "todo-list">
+    {deleteWindow}
     <div id = 'header-todo' className = 'todo'>
       <div className = 'complete-box'>Complete</div>
       <div className = 'task-box'>Task</div>
@@ -30,12 +41,13 @@ export default function Home (props) {
         todoList = {props.todoList}
         isHome = {true}
         taskKeyDown = {props.taskKeyDown}
-        deleteItem = {props.deleteItem}
+        deletePrompt = {deletePrompt}
         ></Todo>
         <div className = 'line'></div>
         </>
         ) 
     })}
+
     <div className = 'todo' id = 'new-todo'>
       {/* <form id = 'new-todo'> */}
       <input id = 'new-todo-input' 

@@ -1,13 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import Todo from './Todo'
+import DeleteWindow from './DeleteWindow'
 import '../styles/Completed.css'
 
 export default function Completed (props) {
   const todos = props.todos.filter(item => item.complete)
+  const [deleteWindow, setDelWindow] = useState(null)
+
+  function deletePrompt (task) {
+    setDelWindow (
+      <DeleteWindow task = {task} 
+      closeDelWindow = {closeDelWindow}
+      deleteItem = {props.deleteItem}></DeleteWindow> 
+    )
+  }
+
+  function closeDelWindow () {
+    setDelWindow(null)
+  }
+
 return (
   <div id = 'completed-page' className = 'full-page'>
 
   <div id = 'completed-list' className = "todo-list">
+  {deleteWindow}
     <div id = 'header-todo' className = 'todo'>
       <div className = 'complete-box'>Restore to Active</div>
       <div className = 'task-box'>Task</div>
@@ -22,7 +38,7 @@ return (
       date = {item.dateCompleted}
       task = {item.task}
       buttonFunc = {props.restoreItem}
-      deleteItem = {props.deleteItem}
+      deletePrompt = {deletePrompt}
       ></Todo>
       <div className = 'line'></div>
       </>
