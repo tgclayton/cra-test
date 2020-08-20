@@ -64,7 +64,7 @@ export default function App(props) {
     updateTodos(newTodoList)
   }
 
-  const clearCompleted = () => {
+  const deleteAllCompleted = () => {
     const newTodoList = todoList.filter(item => !item.complete)
     updateStorage(newTodoList)
     updateTodos(newTodoList)
@@ -144,7 +144,7 @@ export default function App(props) {
             <Completed  
             todos = {todoList.filter(item => item.complete)}
             restoreItem = {restoreItem}
-            clearCompleted = {clearCompleted}
+            deleteAllCompleted = {deleteAllCompleted}
             deleteItem = {deleteItem}
             todoList = {todoList}
             setPage = {setPage}

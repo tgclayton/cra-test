@@ -13,7 +13,11 @@ export default function Completed (props) {
     setDelWindow (
       <DeleteWindow task = {task} 
       closeDelWindow = {closeDelWindow}
-      deleteItem = {props.deleteItem}></DeleteWindow> 
+      deleteItem = {props.deleteItem}
+      deleteAll = {props.deleteAllCompleted}
+      >
+      </DeleteWindow> 
+
     )
   }
 
@@ -49,7 +53,7 @@ return (
    <div className = 'completed-buffer'></div>
   <div id = 'clear-complete' 
     className = 'completed-buffer'>
-    <button  id = 'clear-complete-button' onClick = {() => props.clearCompleted()}>Delete All</button>
+    <button  id = 'clear-complete-button' onClick = {() => deletePrompt(null)}>Delete All</button>
   </div>
 </div>
 </div>

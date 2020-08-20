@@ -4,8 +4,14 @@ import '../styles/DeleteWindow.css'
 export default function DeleteWindow (props) {
 
 function deleteItem (task) {
-props.closeDelWindow()
-props.deleteItem(task)
+  if (task){
+    props.closeDelWindow()
+    props.deleteItem(task)
+  } else {
+    props.closeDelWindow()
+    props.deleteAll()
+  }
+
 }
 
   return (
