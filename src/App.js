@@ -12,9 +12,17 @@ import Completed from './components/Completed'
 import DeleteWindow from './components/DeleteWindow'
 
 export default function App(props) {
-  const [todoList, updateTodos] = useState(JSON.parse(localStorage.getItem('storedTodos')))
+  const startState = localStorage.getItem('storedTodos')? JSON.parse(localStorage.getItem('storedTodos')) : [{
+    task: 'Add a to-do',
+    dateCreated: '-',
+    complete: false,
+    dateCompleted: null,
+  }]
+  // console.log(startState)
+  const [todoList, updateTodos] = useState(startState)
   const [currentPage, updatePage] = useState('active')
 
+  // console.log(todoList)
    useEffect (() => {
     document.getElementById('active-button').classList.remove('dark-background')
     document.getElementById('completed-button').classList.remove('dark-background')
