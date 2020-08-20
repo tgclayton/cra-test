@@ -9,6 +9,9 @@ export default function Completed (props) {
 
   props.setPage('completed')
 
+  // console.log(todos)
+  const deleteAllButton = todos[0]? <button  id = 'clear-complete-button' onClick = {() => deletePrompt(null)}>Delete All</button>: null
+
   function deletePrompt (task) {
     let message
     if(task){
@@ -25,7 +28,6 @@ export default function Completed (props) {
       message = {message}
       >
       </DeleteWindow> 
-
     )
   }
 
@@ -49,10 +51,10 @@ return (
        return (
         <>
       <Todo key = {`todo-${i}`} 
-      date = {item.dateCompleted}
-       task = {item.task}
-      buttonFunc = {props.restoreItem}
-      deletePrompt = {deletePrompt}
+        date = {item.dateCompleted}
+        task = {item.task}
+        buttonFunc = {props.restoreItem}
+        deletePrompt = {deletePrompt}
       ></Todo>
       <div className = 'line'></div>
       </>
@@ -61,7 +63,7 @@ return (
    <div className = 'completed-buffer'></div>
   <div id = 'clear-complete' 
     className = 'completed-buffer'>
-    <button  id = 'clear-complete-button' onClick = {() => deletePrompt(null)}>Delete All</button>
+    {deleteAllButton}
   </div>
 </div>
 </div>
