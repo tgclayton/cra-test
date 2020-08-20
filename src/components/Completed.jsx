@@ -10,11 +10,19 @@ export default function Completed (props) {
   props.setPage('completed')
 
   function deletePrompt (task) {
+    let message
+    if(task){
+      message = 'Are you sure you want to delete this task?'
+    } else {
+      message = 'Are you sure you want to delete every completed task?'
+    }
+
     setDelWindow (
       <DeleteWindow task = {task} 
       closeDelWindow = {closeDelWindow}
       deleteItem = {props.deleteItem}
       deleteAll = {props.deleteAllCompleted}
+      message = {message}
       >
       </DeleteWindow> 
 

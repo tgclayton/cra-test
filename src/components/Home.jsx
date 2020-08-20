@@ -8,12 +8,13 @@ export default function Home (props) {
  const [deleteWindow, setDelWindow] = useState(null)
 
  props.setPage('active')
-
   function deletePrompt (task) {
     setDelWindow (
       <DeleteWindow task = {task} 
       closeDelWindow = {closeDelWindow}
-      deleteItem = {props.deleteItem}></DeleteWindow> 
+      deleteItem = {props.deleteItem}
+      message = 'Are you sure you want to delete this task?'
+      ></DeleteWindow> 
     )
   }
 

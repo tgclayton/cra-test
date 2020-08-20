@@ -11,12 +11,13 @@ function deleteItem (task) {
     props.closeDelWindow()
     props.deleteAll()
   }
-
 }
+
+const message = props.message
 
   return (
     <div className= 'delete-window'>
-      <p>Are you sure you want to delete this task?</p>
+      <p>{message}</p>
       <div>
       <button className = 'delete-button' onClick = {() => deleteItem(props.task)}>Yes</button>
       <button className = 'delete-button' onClick = {() => props.closeDelWindow()}>No</button>
