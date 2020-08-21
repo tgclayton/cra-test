@@ -13,7 +13,7 @@ export default function Home (props) {
       <DeleteWindow task = {task} 
       closeDelWindow = {closeDelWindow}
       deleteItem = {props.deleteItem}
-      message = 'Are you sure you want to delete this task?'
+      message = 'Are you sure you want to delete task:'
       ></DeleteWindow> 
     )
   }

@@ -66,6 +66,7 @@ h2 {
   text-decoration: none;
   border: 1pt solid black;
   border-radius: 15px;
+  overflow: hidden;
 }
 
 .dark-background {

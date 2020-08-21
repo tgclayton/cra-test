@@ -15,7 +15,7 @@ export default function Completed (props) {
   function deletePrompt (task) {
     let message
     if(task){
-      message = 'Are you sure you want to delete this task?'
+      message = 'Are you sure you want to delete task:'
     } else {
       message = 'Are you sure you want to delete every completed task?'
     }

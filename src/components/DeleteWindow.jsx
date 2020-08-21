@@ -18,6 +18,7 @@ const message = props.message
   return (
     <div className= 'delete-window'>
       <p>{message}</p>
+      <p>"{props.task}"</p>
       <div>
       <button className = 'delete-button' onClick = {() => deleteItem(props.task)}>Yes</button>
       <button className = 'delete-button' onClick = {() => props.closeDelWindow()}>No</button>
