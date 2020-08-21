@@ -88,6 +88,7 @@ h2 {
   background-color: ivory;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
 }
 
 
