@@ -26,6 +26,7 @@ export default function App(props) {
    useEffect (() => {
     document.getElementById('active-button').classList.remove('dark-background')
     document.getElementById('completed-button').classList.remove('dark-background')
+    document.getElementById('about-button').classList.remove('dark-background')
     const current = currentPage + '-button' 
     document.getElementById(current).classList.toggle('dark-background')
    })
@@ -121,7 +122,7 @@ export default function App(props) {
       <div id = 'navbar' className = 'vert-center'>
         <Link to="/" className = 'nav-button' id = 'active-button' onClick = {() => updatePage('active')}>Active</Link>
         <Link to="/completed" className = 'nav-button' id = 'completed-button' onClick = {() => updatePage('completed')}>Completed</Link>
-        {/* <Link to="/about" className = 'nav-button'>About</Link> */}
+        <Link to="/about" className = 'nav-button' id = 'about-button'>About</Link>
       </div>
       
         <Switch>
@@ -138,7 +139,9 @@ export default function App(props) {
             />
           </Route>
           <Route path="/about">
-            <About />
+            <About 
+              setPage = {setPage}
+            />
           </Route>
           <Route path="/completed">
             <Completed  
