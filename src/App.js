@@ -116,26 +116,34 @@ export default function App(props) {
     localStorage.setItem('storedTodos', JSON.stringify(data))
   }
 
+  function setUser(user) {
+    updateUser(user)
+  }
+
   function dbTest() {
     console.log('got into dbTest')
     testDB()
       .then(() => {
         console.log('database updated')
+          .catch(err => {
+            console.log('DB error:', err)
+          })
       })
   }
-
+  const home = <Home
+    todos={todoList.filter(item => !item.complete)}
+    addTodo={addTodo}
+    completeTodo={completeTodo}
+    todoList={todoList}
+    inputKeyDown={inputKeyDown}
+    taskKeyDown={taskKeyDown}
+    deleteItem={deleteItem}
+    setPage={setPage}
+  />
+  // const homeDisplay = home
   const homeDisplay = activeUser ?
-    <Home
-      todos={todoList.filter(item => !item.complete)}
-      addTodo={addTodo}
-      completeTodo={completeTodo}
-      todoList={todoList}
-      inputKeyDown={inputKeyDown}
-      taskKeyDown={taskKeyDown}
-      deleteItem={deleteItem}
-      setPage={setPage}
-    />
-    : <Login />
+    home
+    : <Login setUser={setUser} />
 
   return (
     <Router>
