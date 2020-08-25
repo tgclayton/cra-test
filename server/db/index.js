@@ -1,12 +1,13 @@
 
-const mongoose = require('mongoose')
+const MongoClient = require('mongodb').MongoClient;
+const uri = "mongodb+srv://Tom:LzIz1C5CA5Poh9Vl@toms-to-do.zkt6p.mongodb.net/todo-users?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 
-mongoose
-    .connect('mongodb://127.0.0.1:27017/cinema', { useNewUrlParser: true })
-    .catch(e => {
-        console.error('Connection error', e.message)
-    })
-
-const db = mongoose.connection
+const db = client
+   .connect()
+   .then(() => {console.log('Connected to mongoDB')})
+   .catch(e => {
+    console.error('Connection error', e.message)
+})
 
 module.exports = db
