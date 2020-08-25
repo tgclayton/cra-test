@@ -10,7 +10,7 @@ import About from './components/About'
 import Home from './components/Home'
 import Completed from './components/Completed'
 import DeleteWindow from './components/DeleteWindow'
-import { testDB } from '../api'
+import { testDB } from './api'
 
 export default function App(props) {
   const startState = localStorage.getItem('storedTodos') ? JSON.parse(localStorage.getItem('storedTodos')) : [{
@@ -113,7 +113,8 @@ export default function App(props) {
     localStorage.setItem('storedTodos', JSON.stringify(data))
   }
 
-  function dbTest() {
+  function dbTest(inp) {
+    console.log(inp)
     testDB()
       .then(() => {
         console.log('database updated')
@@ -145,7 +146,7 @@ export default function App(props) {
               deleteItem={deleteItem}
               setPage={setPage}
             />
-            <button onclick={() => dbTest()}>Add data to database</button>
+            <button onClick={() => dbTest('worked')}>Add data to database</button>
           </Route>)
           <Route path="/about">
             <About
