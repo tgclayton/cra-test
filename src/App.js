@@ -11,6 +11,7 @@ import Home from './components/Home'
 import Completed from './components/Completed'
 import DeleteWindow from './components/DeleteWindow'
 import { testDB } from './api'
+import Login from './components/Login'
 
 export default function App(props) {
   const startState = localStorage.getItem('storedTodos') ? JSON.parse(localStorage.getItem('storedTodos')) : [{
@@ -19,11 +20,13 @@ export default function App(props) {
     complete: false,
     dateCompleted: null,
   }]
-  // console.log(startState)
+
+  // hooks
   const [todoList, updateTodos] = useState(startState)
   const [currentPage, updatePage] = useState('active')
+  const [activeUser, updateUser] = useState(null)
 
-  // console.log(todoList)
+
   useEffect(() => {
     document.getElementById('active-button').classList.remove('dark-background')
     document.getElementById('completed-button').classList.remove('dark-background')
@@ -121,6 +124,19 @@ export default function App(props) {
       })
   }
 
+  const homeDisplay = activeUser ?
+    <Home
+      todos={todoList.filter(item => !item.complete)}
+      addTodo={addTodo}
+      completeTodo={completeTodo}
+      todoList={todoList}
+      inputKeyDown={inputKeyDown}
+      taskKeyDown={taskKeyDown}
+      deleteItem={deleteItem}
+      setPage={setPage}
+    /> 
+    : <Login/>
+
   return (
     <Router>
       <div id='app-container'>
@@ -136,16 +152,8 @@ export default function App(props) {
 
         <Switch>
           <Route exact path="/">
-            <Home
-              todos={todoList.filter(item => !item.complete)}
-              addTodo={addTodo}
-              completeTodo={completeTodo}
-              todoList={todoList}
-              inputKeyDown={inputKeyDown}
-              taskKeyDown={taskKeyDown}
-              deleteItem={deleteItem}
-              setPage={setPage}
-            />
+            {homeDisplay}
+
             <button onClick={() => dbTest()}>Add data to database</button>
           </Route>)
           <Route path="/about">
