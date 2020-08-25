@@ -113,8 +113,8 @@ export default function App(props) {
     localStorage.setItem('storedTodos', JSON.stringify(data))
   }
 
-  function dbTest(inp) {
-    console.log(inp)
+  function dbTest() {
+    console.log('got into dbTest')
     testDB()
       .then(() => {
         console.log('database updated')
@@ -146,7 +146,7 @@ export default function App(props) {
               deleteItem={deleteItem}
               setPage={setPage}
             />
-            <button onClick={() => dbTest('worked')}>Add data to database</button>
+            <button onClick={() => dbTest()}>Add data to database</button>
           </Route>)
           <Route path="/about">
             <About
