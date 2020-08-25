@@ -4,8 +4,6 @@ body {
   --background:
 }
 
-
-
 div {
   display: flex;
   justify-content: center;
@@ -20,8 +18,17 @@ h1 {
 }
 
 h2 {
-
   color: rgb(224, 224, 207);
+}
+
+.ivory-back {
+  background-color: ivory;
+}
+
+.curvy-border {
+  border: 2pt solid black;
+  box-shadow: 3px 2px black;
+  border-radius: 20px;
 }
 
 .full-page {

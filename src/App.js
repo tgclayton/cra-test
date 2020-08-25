@@ -134,8 +134,8 @@ export default function App(props) {
       taskKeyDown={taskKeyDown}
       deleteItem={deleteItem}
       setPage={setPage}
-    /> 
-    : <Login/>
+    />
+    : <Login />
 
   return (
     <Router>
@@ -152,9 +152,10 @@ export default function App(props) {
 
         <Switch>
           <Route exact path="/">
-            {homeDisplay}
-
-            <button onClick={() => dbTest()}>Add data to database</button>
+            <div id='home-page' className='full-page'>
+              {homeDisplay}
+            </div>
+            {/* <button onClick={() => dbTest()}>Add data to database</button> */}
           </Route>)
           <Route path="/about">
             <About
