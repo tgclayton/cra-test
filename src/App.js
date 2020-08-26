@@ -129,10 +129,10 @@ export default function App(props) {
     deleteItem={deleteItem}
     setPage={setPage}
   />
-  // const homeDisplay = home
-  const homeDisplay = activeUser ?
-    home
-    : <Login setUser={setUser} />
+  const homeDisplay = home
+  // const homeDisplay = activeUser ?
+  //   home
+  //   : <Login setUser={setUser} />
 
   return (
     <Router>
