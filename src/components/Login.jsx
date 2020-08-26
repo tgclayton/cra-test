@@ -3,6 +3,7 @@ import '../styles/Login.css'
 import {addUser} from '../api'
 
 export default function Login(props) {
+  console.log(process.env)
   const { setUser } = props
 
   function getDetails() {

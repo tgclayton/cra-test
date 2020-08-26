@@ -10,7 +10,6 @@ import About from './components/About'
 import Home from './components/Home'
 import Completed from './components/Completed'
 import DeleteWindow from './components/DeleteWindow'
-import { testDB } from './api'
 import Login from './components/Login'
 
 export default function App(props) {
