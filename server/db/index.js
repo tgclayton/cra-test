@@ -2,31 +2,31 @@
 const MongoClient = require('mongodb').MongoClient;
 const uri = "mongodb+srv://Tom:LzIz1C5CA5Poh9Vl@toms-to-do.zkt6p.mongodb.net/todo-users?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-const connection = client
+client
     .connect()
     .then(() => { console.log('Connected to mongoDB') })
     .catch(e => {
         console.error('Connection error', e.message)
     })
-    
+
 module.exports = {
     logIn,
-    testDB
+    addUser
 }
 
 function logIn(username) {
 
 }
 
-async function testDB() {
-    const db = client.db('test')
+async function addUser(user) {
+    const db = client.db('To-do-data')
     try {
-        const col = db.collection("test")
-        // Insert a single document, wait for promise so we can read it back
-        await col.insertOne({ test: 'test' });
-        console.log('db updated')
+        const col = db.collection("users")
+        await col.insertOne(user)
+        // console.log('user added:', user)
     }
     catch (err) {
         console.log(err.stack);
     }
 }
+

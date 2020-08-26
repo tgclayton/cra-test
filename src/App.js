@@ -120,16 +120,6 @@ export default function App(props) {
     updateUser(user)
   }
 
-  function dbTest() {
-    console.log('got into dbTest')
-    testDB()
-      .then(() => {
-        console.log('database updated')
-          .catch(err => {
-            console.log('DB error:', err)
-          })
-      })
-  }
   const home = <Home
     todos={todoList.filter(item => !item.complete)}
     addTodo={addTodo}
@@ -163,7 +153,6 @@ export default function App(props) {
             <div id='home-page' className='full-page'>
               {homeDisplay}
             </div>
-            {/* <button onClick={() => dbTest()}>Add data to database</button> */}
           </Route>)
           <Route path="/about">
             <About
