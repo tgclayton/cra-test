@@ -11,10 +11,13 @@ div {
 }
 
 h1 {
-  min-height: 15vh;
+  height: 15vh;
   color: rgb(224, 224, 207);
   align-items: center;
   display: flex;
+  position: relative;
+  top: 0;
+  margin: 0;
 }
 
 h2 {
@@ -33,7 +36,7 @@ h2 {
 
 .full-page {
   z-index: 1;
-  min-height: 80vh;
+  height: 78vh;
   min-width: 100vw;
   justify-content: flex-start;
   align-items: center;
@@ -55,7 +58,7 @@ h2 {
 }
 
 #navbar {
-  min-height: 5vh;
+  height: 7vh;
   /* position: relative;
   top: var(--top-offset); */
 }
