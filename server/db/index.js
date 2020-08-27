@@ -1,6 +1,8 @@
-
+require('dotenv').config()
 const MongoClient = require('mongodb').MongoClient;
-const uri = "mongodb+srv://Tom:zQnk4yjrYBuHdSvs@toms-to-do.zkt6p.mongodb.net/todo-users?retryWrites=true&w=majority";
+// console.log(process.env.REACT_APP_DB_ACCESS)
+// console.log(process.env)
+const uri = process.env.REACT_APP_DB_ACCESS
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client
     .connect()
