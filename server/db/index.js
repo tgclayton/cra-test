@@ -13,7 +13,8 @@ client
 
 module.exports = {
     logIn,
-    addUser
+    addUser,
+    checkUser
 }
 
 function logIn(username) {
@@ -26,6 +27,24 @@ async function addUser(user) {
         const col = db.collection("users")
         await col.insertOne(user)
         // console.log('user added:', user)
+    }
+    catch (err) {
+        console.log(err.stack);
+    }
+}
+
+async function checkUser(username) {
+    console.log('check name:', username)
+    const db = client.db('To-do-data')
+    try {
+        const col = db.collection("users")
+       const found = await col.findOne({"username": username})
+       console.log(found)
+        if (found) {
+            return 'true'
+        } else {
+            return 'false'
+        }
     }
     catch (err) {
         console.log(err.stack);

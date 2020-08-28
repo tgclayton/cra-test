@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Login.css'
-import {addUser} from '../api'
+import {addUser, checkUserExists} from '../api'
 
 export default function Login(props) {
   const { setUser } = props
@@ -18,7 +18,9 @@ export default function Login(props) {
 
   async function signUp() {
     const { password, username } = getDetails()
-    if (password && username) {
+    const userExists = await checkUserExists(username)
+    console.log('user exists:', userExists)
+    if (password && username && userExists === 'false') {
       const user = {
         username,
         password

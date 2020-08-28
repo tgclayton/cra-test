@@ -5,6 +5,7 @@ const router = express.Router()
 
 //POST /users/add
 router.post('/add', (req, res) => {
+  console.log('req:', req.body)
   db.addUser(req.body)
   .then(x => {
     res.send('Ok')
@@ -14,4 +15,16 @@ router.post('/add', (req, res) => {
   })
 })
 
+//POST /users/check
+
+router.post('/check/:name', (req, res) => {
+  // console.log('req:', req.params.name)
+  db.checkUser(req.params.name)
+  .then(result => {
+    res.send(result)
+  })
+  .catch(err => {
+    res.status(500).send('DATABASE ERROR: ' + err.message)
+  })
+})
 module.exports = router
