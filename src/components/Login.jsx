@@ -36,7 +36,7 @@ export default function Login(props) {
       <label for='userInp'>Username</label>
       <input id='username-input' name='userInp' className='login-input' type='text'></input>
       <label for='passInp'>Password</label>
-      <input id='password-input' name='passInp' className='login-input' type='text'></input>
+      <input id='password-input' name='passInp' className='login-input' type='password'></input>
       <br />
       <div className='flex-row'>
         <button onClick={() => login()}>Login</button>
