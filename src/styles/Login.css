@@ -25,6 +25,21 @@
   outline: none;
 }
 
+#login-header-container {
+  justify-content: center;
+  align-items: center;
+  height: 25%;
+  position: relative;  
+}
+
+#login-button-div {
+  height: 25%;
+}
+
+#login-input-div {
+  height: 50%;
+}
+
 .login-input {
   /* max-width: 80%; */
 }

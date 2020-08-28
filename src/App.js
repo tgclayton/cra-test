@@ -27,11 +27,13 @@ export default function App(props) {
 
 
   useEffect(() => {
-    document.getElementById('active-button').classList.remove('dark-background')
-    document.getElementById('completed-button').classList.remove('dark-background')
-    document.getElementById('about-button').classList.remove('dark-background')
-    const current = currentPage + '-button'
-    document.getElementById(current).classList.toggle('dark-background')
+    if (activeUser){
+      document.getElementById('active-button').classList.remove('dark-background')
+      document.getElementById('completed-button').classList.remove('dark-background')
+      document.getElementById('about-button').classList.remove('dark-background')
+      const current = currentPage + '-button'
+      document.getElementById(current).classList.toggle('dark-background')
+    }
   })
 
   function setPage(page) {
@@ -119,6 +121,12 @@ export default function App(props) {
     updateUser(user)
   }
 
+  const navButtons =
+    <>
+      <Link to="/" className='nav-button' id='active-button' onClick={() => updatePage('active')}>Active</Link>
+      <Link to="/completed" className='nav-button' id='completed-button' onClick={() => updatePage('completed')}>Completed</Link>
+      <Link to="/about" className='nav-button' id='about-button'>About</Link>
+    </>
   const home = <Home
     todos={todoList.filter(item => !item.complete)}
     addTodo={addTodo}
@@ -130,6 +138,7 @@ export default function App(props) {
     setPage={setPage}
   />
   // const homeDisplay = home
+  const navDisplay = activeUser ? navButtons: null
   const homeDisplay = activeUser ?
     home
     : <Login setUser={setUser} />
@@ -140,13 +149,9 @@ export default function App(props) {
         <div id='app-title' className='vert-center'>
           <h1>Tom's ToDo</h1>
         </div>
-
         <div id='navbar' className='vert-center'>
-          <Link to="/" className='nav-button' id='active-button' onClick={() => updatePage('active')}>Active</Link>
-          <Link to="/completed" className='nav-button' id='completed-button' onClick={() => updatePage('completed')}>Completed</Link>
-          <Link to="/about" className='nav-button' id='about-button'>About</Link>
+          {navDisplay}
         </div>
-
         <Switch>
           <Route exact path="/">
             <div id='home-page' className='full-page'>
