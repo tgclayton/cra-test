@@ -19,7 +19,7 @@ router.post('/add', (req, res) => {
 
 router.post('/check/:name', (req, res) => {
   // console.log('req:', req.params.name)
-  db.checkUser(req.params.name)
+  db.checkUserExists(req.params.name)
   .then(result => {
     res.send(result)
   })

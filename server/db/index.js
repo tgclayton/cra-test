@@ -14,7 +14,7 @@ client
 module.exports = {
     logIn,
     addUser,
-    checkUser
+    checkUserExists
 }
 
 function logIn(username) {
@@ -33,13 +33,21 @@ async function addUser(user) {
     }
 }
 
-async function checkUser(username) {
-    console.log('check name:', username)
+async function getUser(username) {
     const db = client.db('To-do-data')
     try {
         const col = db.collection("users")
-       const found = await col.findOne({"username": username})
-       console.log(found)
+        const user = await col.findOne({ "username": username })
+        return
+    }
+    catch (err) {
+        console.log(err.stack);
+    }
+}
+
+async function checkUserExists(username) {
+    try {
+        const found = getUser(username)
         if (found) {
             return 'true'
         } else {
