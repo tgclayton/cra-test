@@ -33,7 +33,7 @@ async function getUser(username) {
     const db = client.db('To-do-data')
     try {
         const col = db.collection("users")
-        const user = await col.findOne({ "username": username })
+        const user = await col.findOne({ "username": username}, {"projection": {"username": 1}})
         return user
     }
     catch (err) {
@@ -42,8 +42,10 @@ async function getUser(username) {
 }
 
 async function logIn(username, password) {
-    const user = await getUser(username)
-    if (user.password === password) {
+    const db = client.db('To-do-data')
+    const col = db.collection("users")
+    const user = await col.findOne({ "username": username, "password": password}, {"projection": {"username": 1}})
+    if (user) {
         return 'true'
     } else {
         return 'false'
@@ -52,7 +54,10 @@ async function logIn(username, password) {
 
 async function checkUserExists(username) {
     try {
-        const found = getUser(username)
+        const db = client.db('To-do-data')
+        const col = db.collection("users")
+        const found = await col.findOne({ "username": username}, {"projection": {"username": 1}})
+        console.log('found:', found)
         if (found) {
             return 'true'
         } else {
@@ -63,4 +68,3 @@ async function checkUserExists(username) {
         console.log(err.stack);
     }
 }
-
