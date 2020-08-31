@@ -28,3 +28,15 @@ export async function addUser(user) {
       console.log(err)
     })
 }
+
+export async function logIn(username, password) {
+  const user = { username, password }
+  return request.post('/users/login')
+    .send(user)
+    .then(res => {
+      return res.body
+    })
+    .catch(err => {
+      console.log(err)
+    })
+}

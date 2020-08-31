@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Login.css'
-import { addUser, checkUserExists } from '../api'
+import { addUser, checkUserExists, logIn } from '../api'
 
 export default function Login(props) {
   const { setUser } = props
@@ -13,7 +13,12 @@ export default function Login(props) {
 
   async function login() {
     const { password, username } = getDetails()
-    setUser(username)
+    const result = await logIn(username, password)
+    if (result === 'true'){
+      setUser(username)
+    } else {
+      return
+    }
   }
 
   async function signUp() {

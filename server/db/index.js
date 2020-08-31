@@ -14,11 +14,7 @@ client
 module.exports = {
     logIn,
     addUser,
-    checkUserExists
-}
-
-function logIn(username) {
-
+    checkUserExists,
 }
 
 async function addUser(user) {
@@ -38,10 +34,19 @@ async function getUser(username) {
     try {
         const col = db.collection("users")
         const user = await col.findOne({ "username": username })
-        return
+        return user
     }
     catch (err) {
         console.log(err.stack);
+    }
+}
+
+async function logIn(username, password) {
+    const user = await getUser(username)
+    if (user.password === password) {
+        return 'true'
+    } else {
+        return 'false'
     }
 }
 

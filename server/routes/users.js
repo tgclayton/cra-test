@@ -28,3 +28,17 @@ router.post('/check/:name', (req, res) => {
   })
 })
 module.exports = router
+
+//POST /users/login
+
+router.post('/login', (req, res) => {
+  const {username, password} = req.body
+  db.logIn(username, password)
+  .then(() => {
+    res.send('Ok')
+  })
+  .catch(err => {
+    res.status(500).send('DATABASE ERROR: ' + err.message)
+  })
+})
+module.exports = router
