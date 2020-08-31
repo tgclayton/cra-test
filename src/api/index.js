@@ -34,7 +34,7 @@ export async function logIn(username, password) {
   return request.post('/users/login')
     .send(user)
     .then(res => {
-      return res.body
+      return res.text
     })
     .catch(err => {
       console.log(err)
