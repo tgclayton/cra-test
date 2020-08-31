@@ -34,8 +34,8 @@ module.exports = router
 router.post('/login', (req, res) => {
   const {username, password} = req.body
   db.logIn(username, password)
-  .then(() => {
-    res.send('Ok')
+  .then(result => {
+    res.send(result)
   })
   .catch(err => {
     res.status(500).send('DATABASE ERROR: ' + err.message)
