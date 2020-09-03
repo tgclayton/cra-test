@@ -15,6 +15,9 @@ module.exports = {
     logIn,
     addUser,
     checkUserExists,
+    addToDo,
+    getToDos,
+    deleteToDo
 }
 
 async function addUser(user) {
@@ -22,23 +25,33 @@ async function addUser(user) {
     try {
         const col = db.collection("users")
         await col.insertOne(user)
-        // console.log('user added:', user)
+        
     }
     catch (err) {
         console.log(err.stack);
     }
 }
 
-async function getUser(username) {
-    const db = client.db('To-do-data')
+async function getToDos (username) {
     try {
-        const col = db.collection("users")
-        const user = await col.findOne({ "username": username}, {"projection": {"username": 1}})
-        return user
+        const db = client.db('To-do-data')
+        const col = db.collection("todos")
+        const todos = await col.find({'username': username})
+        return todos
     }
     catch (err) {
         console.log(err.stack);
     }
+}
+
+async function addToDo (username, todo) {
+    const db = client.db('To-do-data')
+    const col = db.collection("todos")
+}
+
+async function deleteToDo (username) {
+    const db = client.db('To-do-data')
+    const col = db.collection("todos")
 }
 
 async function logIn(username, password) {
@@ -65,6 +78,6 @@ async function checkUserExists(username) {
         }
     }
     catch (err) {
-        console.log(err.stack);
+        console.log(err.stack)
     }
 }

@@ -40,3 +40,14 @@ export async function logIn(username, password) {
       console.log(err)
     })
 }
+
+export async function getTodos(username) {
+  return request.get('/data/todos')
+  .send(username)
+  .then(res => {
+    console.log(res.body)
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
