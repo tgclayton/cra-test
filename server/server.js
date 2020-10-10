@@ -2,7 +2,7 @@ const path = require('path')
 const express = require('express')
 const server = express()
 const home = require('./routes/home.js')
-const test = require('./routes/test.js')
+// const test = require('./routes/test.js')
 const users = require('./routes/users.js')
 // const users = require('../routes/users')
 
@@ -11,7 +11,7 @@ console.log('dirname:', __dirname)
 server.use(express.static(path.join(__dirname, 'build')))
 
 server.use('/', home)
-server.use('/test', test)
+// server.use('/test', test)
 server.use('/users', users)
 
 module.exports = server
