@@ -50,4 +50,14 @@ export async function getTodos(username) {
   .catch(err => {
     console.log(err)
   })
+
+}export async function addTodos(username, todo) {
+  return request.post('/data/todos')
+  .send(username)
+  .then(res => {
+    console.log(res.body)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 }
