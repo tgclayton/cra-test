@@ -51,9 +51,10 @@ export async function getTodos(username) {
     console.log(err)
   })
 
-}export async function addTodos(username, todo) {
+}export async function apiAddTodo(username, todo) {
+  console.log(`${todo}, ${username}, entered addTodo`)
   return request.post('/data/todos')
-  .send(username)
+  .send(username, todo)
   .then(res => {
     console.log(res.body)
   })

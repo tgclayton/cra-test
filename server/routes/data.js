@@ -17,7 +17,7 @@ router.get('/todos', (req, res) => {
 
 // post /data/todos
 router.post('/todos', (req, res) => {
-  const {username} = req.body
+  const {username, todo} = req.body
   db.getToDos(username)
   .then(todos => {
     res.send(todos)

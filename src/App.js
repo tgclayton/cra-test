@@ -11,6 +11,7 @@ import Home from './components/Home'
 import Completed from './components/Completed'
 import DeleteWindow from './components/DeleteWindow'
 import Login from './components/Login'
+import { apiAddTodo } from './api/index.js'
 
 export default function App(props) {
   const startState = localStorage.getItem('storedTodos') ? JSON.parse(localStorage.getItem('storedTodos')) : [{
@@ -57,6 +58,7 @@ export default function App(props) {
       newTodoList.push(todo)
       updateStorage(newTodoList)
       updateTodos(newTodoList)
+      apiAddTodo(activeUser, todo)
     }
   }
 
