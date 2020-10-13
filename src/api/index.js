@@ -37,7 +37,7 @@ export async function logIn(username, password) {
     })
 }
 
-export async function getTodos(username) {
+export async function getTodosByUsername(username) {
   return request.get('/data/todos')
   .send(username)
   .then(res => {

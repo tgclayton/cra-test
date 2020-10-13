@@ -11,7 +11,7 @@ import Home from './components/Home'
 import Completed from './components/Completed'
 import DeleteWindow from './components/DeleteWindow'
 import Login from './components/Login'
-import { apiAddTodo } from './api/index.js'
+import { apiAddTodo, getTodosByUsername } from './api/index.js'
 
 export default function App(props) {
   const startState = localStorage.getItem('storedTodos') ? JSON.parse(localStorage.getItem('storedTodos')) 
@@ -22,11 +22,18 @@ export default function App(props) {
     dateCompleted: null,
   }]
 
+  // const dbStartState = getTodosByUsername() ?
+  // : [{
+  //   task: 'Add a to-do',
+  //   dateCreated: '-',
+  //   complete: false,
+  //   dateCompleted: null,
+  // }]
+
   // hooks
   const [todoList, updateTodos] = useState(startState)
   const [currentPage, updatePage] = useState('active')
   const [activeUser, updateUser] = useState(null)
-
 
   useEffect(() => {
     if (activeUser){
@@ -35,6 +42,7 @@ export default function App(props) {
       document.getElementById('about-button').classList.remove('dark-background')
       const current = currentPage + '-button'
       document.getElementById(current).classList.toggle('dark-background')
+      updateTodos(getTodosByUsername(activeUser))
     }
   })
 
