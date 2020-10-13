@@ -45,10 +45,11 @@ async function getToDos (username) {
     }
 }
 
-async function addToDo (username, todo) {
-    console.log('got to db.addtodo')
+async function addToDo (todo) {
+    // console.log(`data received ${username}, ${todo}`)
     const db = client.db('To-do-data')
     const col = db.collection("todos")
+    await col.insertOne(todo)
 }
 
 async function deleteToDo (username) {

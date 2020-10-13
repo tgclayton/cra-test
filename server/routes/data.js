@@ -18,7 +18,7 @@ router.get('/todos', (req, res) => {
 
 // POST /data/todos
 router.post('/todos', (req, res) => {
-  console.log(`todos received: ${JSON.stringify(req.body)}`)
+  // console.log(`todos received: ${JSON.stringify(req.body)}`)
   // const {username, todo} = req.body
   db.addToDo(req.body)
   .then(todos => {
