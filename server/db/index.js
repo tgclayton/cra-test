@@ -46,6 +46,7 @@ async function getToDos (username) {
 }
 
 async function addToDo (username, todo) {
+    console.log('got to db.addtodo')
     const db = client.db('To-do-data')
     const col = db.collection("todos")
 }

@@ -1,9 +1,10 @@
 const express = require('express')
+const { ModuleResolutionKind } = require('typescript')
 const db = require('../db')
 
 const router = express.Router()
 
-// get /data/todos
+// GET /data/todos
 router.get('/todos', (req, res) => {
   const {username} = req.body
   db.getToDos(username)
@@ -15,10 +16,11 @@ router.get('/todos', (req, res) => {
   })
 })
 
-// post /data/todos
+// POST /data/todos
 router.post('/todos', (req, res) => {
-  const {username, todo} = req.body
-  db.getToDos(username)
+  console.log(`todos received: ${JSON.stringify(req.body)}`)
+  // const {username, todo} = req.body
+  db.addToDo(req.body)
   .then(todos => {
     res.send(todos)
   })
@@ -26,3 +28,5 @@ router.post('/todos', (req, res) => {
     res.status(500).send('DATABASE ERROR: ' + err.message)
   })
 })
+
+  module.exports = router

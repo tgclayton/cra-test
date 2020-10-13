@@ -9,13 +9,9 @@ export async function testDB() {
 
 export async function checkUserExists(username) {
   return request.post(`/users/check/${username}`)
-    // .send('test')
     .then(res => {
       return res.text
     })
-  // .catch (err => {
-  //   console.log( err)
-  // })
 }
 
 export async function addUser(user) {
@@ -52,9 +48,10 @@ export async function getTodos(username) {
   })
 
 }export async function apiAddTodo(username, todo) {
-  console.log(`${todo}, ${username}, entered addTodo`)
+  // console.log(`${JSON.stringify(todo)}, ${username}, entered addTodo`)
+  const data = {username, todo}
   return request.post('/data/todos')
-  .send(username, todo)
+  .send(data)
   .then(res => {
     console.log(res.body)
   })

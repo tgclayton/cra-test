@@ -14,7 +14,8 @@ import Login from './components/Login'
 import { apiAddTodo } from './api/index.js'
 
 export default function App(props) {
-  const startState = localStorage.getItem('storedTodos') ? JSON.parse(localStorage.getItem('storedTodos')) : [{
+  const startState = localStorage.getItem('storedTodos') ? JSON.parse(localStorage.getItem('storedTodos')) 
+  : [{
     task: 'Add a to-do',
     dateCreated: '-',
     complete: false,
