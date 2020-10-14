@@ -38,10 +38,10 @@ export async function logIn(username, password) {
 }
 
 export async function getTodosByUsername(username) {
-  return request.get('/data/todos')
-  .send(username)
+  return request.post('/data/findTodos')
+  .send({username})
   .then(res => {
-    console.log(res.body)
+    return (res.body)
   })
   .catch(err => {
     console.log(err)
@@ -53,7 +53,7 @@ export async function getTodosByUsername(username) {
   return request.post('/data/todos')
   .send(data)
   .then(res => {
-    console.log(res.body)
+    console.log(res.text)
   })
   .catch(err => {
     console.log(err)

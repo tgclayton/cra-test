@@ -34,10 +34,14 @@ async function addUser(user) {
 }
 
 async function getToDos (username) {
+    console.log('got to gettodos', username)
     try {
         const db = client.db('To-do-data')
         const col = db.collection("todos")
-        const todos = await col.find({'username': username})
+        const todoData = await col.find({"username": username}, {projection:{todo:1}}).toArray()
+        const todos = todoData.map(item => {
+            return item.todo
+        })
         return todos
     }
     catch (err) {

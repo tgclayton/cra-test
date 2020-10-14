@@ -22,14 +22,6 @@ export default function App(props) {
     dateCompleted: null,
   }]
 
-  // const dbStartState = getTodosByUsername() ?
-  // : [{
-  //   task: 'Add a to-do',
-  //   dateCreated: '-',
-  //   complete: false,
-  //   dateCompleted: null,
-  // }]
-
   // hooks
   const [todoList, updateTodos] = useState(startState)
   const [currentPage, updatePage] = useState('active')
@@ -42,12 +34,18 @@ export default function App(props) {
       document.getElementById('about-button').classList.remove('dark-background')
       const current = currentPage + '-button'
       document.getElementById(current).classList.toggle('dark-background')
-      updateTodos(getTodosByUsername(activeUser))
+      // updateTodos(getTodosByUsername(activeUser))
     }
   })
 
   function setPage(page) {
     updatePage(page)
+  }
+
+  const getDbTodos = async (username) => {
+    const todos = await getTodosByUsername(username)
+    console.log(todos)
+    updateTodos(todos)
   }
 
   const addTodo = () => {
@@ -147,6 +145,8 @@ export default function App(props) {
     taskKeyDown={taskKeyDown}
     deleteItem={deleteItem}
     setPage={setPage}
+    getDbTodos={getDbTodos}
+    user={activeUser}
   />
   // const homeDisplay = home
   const navDisplay = activeUser ? navButtons: null
@@ -182,6 +182,7 @@ export default function App(props) {
               deleteItem={deleteItem}
               todoList={todoList}
               setPage={setPage}
+
             />
           </Route>
           <Route path="/completed/delete">

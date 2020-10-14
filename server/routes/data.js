@@ -4,8 +4,8 @@ const db = require('../db')
 
 const router = express.Router()
 
-// GET /data/todos
-router.get('/todos', (req, res) => {
+// POST /data/findTodos
+router.post('/findTodos', (req, res) => {
   const {username} = req.body
   db.getToDos(username)
   .then(todos => {
@@ -21,8 +21,8 @@ router.post('/todos', (req, res) => {
   // console.log(`todos received: ${JSON.stringify(req.body)}`)
   // const {username, todo} = req.body
   db.addToDo(req.body)
-  .then(todos => {
-    res.send(todos)
+  .then(() => {
+    res.send('Added Todo')
   })
   .catch(err => {
     res.status(500).send('DATABASE ERROR: ' + err.message)
