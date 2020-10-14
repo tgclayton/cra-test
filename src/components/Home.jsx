@@ -58,7 +58,6 @@ export default function Home(props) {
         >
         </input>
       </div>
-      <button onClick = {() => props.getDbTodos(props.user)}></button>
     </div>
   )
 }
