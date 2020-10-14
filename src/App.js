@@ -14,31 +14,24 @@ import Login from './components/Login'
 import { apiAddTodo, getTodosByUsername, deleteTodo } from './api/index.js'
 
 export default function App(props) {
-  // const startState = getTodosByUsername(activeUser) ||
-  // // localStorage.getItem('storedTodos') ? JSON.parse(localStorage.getItem('storedTodos')) 
-  //  [{
-  //   task: 'Add a to-do',
-  //   dateCreated: '-',
-  //   complete: false,
-  //   dateCompleted: null,
-  // }]
-
-  // hooks
   const [todoList, updateTodos] = useState([])
   const [currentPage, updatePage] = useState('active')
   const [activeUser, updateUser] = useState(null)
 
    useEffect(() => {
-    const dbTodos = getDbTodos(activeUser)
-    const todos = dbTodos[0] 
-    ? dbTodos 
-    : [{
-        task: 'Add a to-do',
-        dateCreated: '-',
-        complete: false,
-        dateCompleted: null,
-      }]
-    updateTodos(todos)
+     async function getTodoList() {
+       const dbTodos = await getDbTodos(activeUser)
+       const todos = dbTodos.length !== 0
+       ? dbTodos 
+       : [{
+         task: 'Add a to-do', 
+         dateCreated: '-', 
+         complete: false, 
+         dateCompleted: null,
+         }]
+       updateTodos(todos)
+     }
+     getTodoList()
   }, [activeUser])
 
   useEffect(() => {
