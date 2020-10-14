@@ -46,8 +46,21 @@ export async function getTodosByUsername(username) {
   .catch(err => {
     console.log(err)
   })
+}
 
-}export async function apiAddTodo(username, todo) {
+export async function deleteTodo(username, todo) {
+  const data = {username, todo}
+  return request.del('/data/todo')
+  .send(data)
+  .then(res => {
+    return 
+  })
+  .catch(err => {
+    console.log(err)
+  })
+}
+
+export async function apiAddTodo(username, todo) {
   // console.log(`${JSON.stringify(todo)}, ${username}, entered addTodo`)
   const data = {username, todo}
   return request.post('/data/todos')

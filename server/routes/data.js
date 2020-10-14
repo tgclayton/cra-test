@@ -16,6 +16,18 @@ router.post('/findTodos', (req, res) => {
   })
 })
 
+//DELETE /data/todo
+router.delete('/todo', (req, res) => {
+  const {username, todo} = req.body
+  db.deleteToDo(username, todo)
+  .then(todos => {
+    res.send(todos)
+  })
+  .catch(err => {
+    res.status(500).send('DATABASE ERROR: ' + err.message)
+  })
+})
+
 // POST /data/todos
 router.post('/todos', (req, res) => {
   // console.log(`todos received: ${JSON.stringify(req.body)}`)

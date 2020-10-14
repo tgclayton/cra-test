@@ -11,7 +11,7 @@ import Home from './components/Home'
 import Completed from './components/Completed'
 import DeleteWindow from './components/DeleteWindow'
 import Login from './components/Login'
-import { apiAddTodo, getTodosByUsername } from './api/index.js'
+import { apiAddTodo, getTodosByUsername, deleteTodo } from './api/index.js'
 
 export default function App(props) {
   const startState = localStorage.getItem('storedTodos') ? JSON.parse(localStorage.getItem('storedTodos')) 
@@ -103,6 +103,7 @@ export default function App(props) {
   }
 
   function deleteItem(task) {
+    deleteTodo(activeUser, todoList.find(item => item.task = task))
     const newTodoList = todoList.filter(item => item.task !== task)
     updateStorage(newTodoList)
     updateTodos(newTodoList)

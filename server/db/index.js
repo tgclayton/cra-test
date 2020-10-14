@@ -50,15 +50,25 @@ async function getToDos (username) {
 }
 
 async function addToDo (todo) {
-    // console.log(`data received ${username}, ${todo}`)
-    const db = client.db('To-do-data')
-    const col = db.collection("todos")
-    await col.insertOne(todo)
+    try {
+        const db = client.db('To-do-data')
+        const col = db.collection("todos")
+        await col.insertOne(todo)
+
+    }
+    catch (err) {
+        console.log(err.stack);
+    }
 }
 
-async function deleteToDo (username) {
-    const db = client.db('To-do-data')
-    const col = db.collection("todos")
+async function deleteToDo (username, todo) {
+    try {
+        const db = client.db('To-do-data')
+        const col = db.collection("todos")
+        await col.deleteOne({username, todo})
+    } catch (err) {
+        console.log(err.stack);
+    }
 }
 
 async function logIn(username, password) {
